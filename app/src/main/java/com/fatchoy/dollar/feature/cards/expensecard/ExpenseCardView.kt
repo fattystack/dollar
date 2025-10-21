@@ -65,6 +65,7 @@ internal fun GetMonthlyExpenses(moneySpent: Double) {
 @Composable
 internal fun GetMonthlyComparison(moneyComparison: Double, comparisonDirection: Int) {
 
+    //graphite test
     val trendColor = trendColor(comparisonDirection)
     Row (
         verticalAlignment = Alignment.CenterVertically,
