@@ -1,12 +1,13 @@
 package com.fatchoy.dollar.feature.cards.budgetCard
 
-import com.fatchoy.dollar.ui.components.BudgetProgressBarModelState
+import java.time.*
 
-internal class budgetCardViewState (
-    val BudgetTitle: String,
-    val BudgetAmount: Double,
-    val BudgetUsed: Double,
-    val BudgetProgressBar: BudgetProgressBarModelState
+internal class BudgetCardViewState (
+    val budgetTitle: String,
+    val budgetAmount: Double,
+    val budgetUsed: Double,
+    val budgetProgress: Float,
+    val budgetResetDate: LocalDate,
 ){
 
 }

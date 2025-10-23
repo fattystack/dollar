@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">dollar</string>
+
+    <!-- Budget View Strings -->
+    <plurals name="budget_resets_in_days">
+        <item quantity = "one">
+            Resets in $1%s day
+        </item>
+        <item quantity = "other">Resets in $1%s days </item>
+    </plurals>
+
+    <string name = "budget_used_to_amount_ratio">
+        $1%s / $2%s
+    </string>
+
 </resources>
