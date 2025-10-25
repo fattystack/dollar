@@ -17,30 +17,27 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.fatchoy.dollar.R
+import com.fatchoy.dollar.core.util.formatCurrency
+import com.fatchoy.dollar.core.util.formatDelta
 import com.fatchoy.dollar.ui.styling.ExpenseCardTokens
 import com.fatchoy.dollar.ui.styling.Semantic
 import com.fatchoy.dollar.ui.styling.expenseCardColours
 import com.fatchoy.dollar.ui.styling.trendColor
 import com.fatchoy.dollar.ui.theme.DollarTypography
-import com.fatchoy.dollar.core.util.formatDelta
-import com.fatchoy.dollar.core.util.formatCurrency
-
 
 @Composable
-internal fun ExpenseCardView (state: ExpenseCardViewState, modifier: Modifier = Modifier) {
-    Card (
+internal fun ExpenseCardView(state: ExpenseCardViewState, modifier: Modifier = Modifier) {
+    Card(
         modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp),
         shape = RoundedCornerShape(ExpenseCardTokens.Corner),
         colors = expenseCardColours(),
         elevation = CardDefaults.cardElevation(ExpenseCardTokens.Elevation)
-
-    ){
-        Column (Modifier.padding(ExpenseCardTokens.Padding)){
+    ) {
+        Column(Modifier.padding(ExpenseCardTokens.Padding)) {
             Text(
                 text = state.title.orEmpty(),
                 style = DollarTypography.Body,
@@ -58,15 +55,14 @@ internal fun ExpenseCardView (state: ExpenseCardViewState, modifier: Modifier = 
 internal fun GetMonthlyExpenses(moneySpent: Double) {
     Text(
         text = formatCurrency(moneySpent),
-        style = DollarTypography.H1,
+        style = DollarTypography.H1
     )
 }
 
 @Composable
 internal fun GetMonthlyComparison(moneyComparison: Double, comparisonDirection: Int) {
-
     val trendColor = trendColor(comparisonDirection)
-    Row (
+    Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(6.dp)
     ) {
@@ -85,25 +81,12 @@ internal fun GetMonthlyComparison(moneyComparison: Double, comparisonDirection: 
 
 @Composable
 internal fun getIcon(direction: Int): Painter {
-    return when(direction) {
-        //up
+    return when (direction) {
+        // up
         1 -> painterResource(R.drawable.down_trend_icon)
-        //down
+        // down
         2 -> painterResource(R.drawable.up_trend_icon)
-        //neutral
+        // neutral
         else -> painterResource(R.drawable.neutral_trend_icon)
     }
-}
-
-@Preview
-@Composable
-private fun ExpenseCardPreview() {
-    ExpenseCardView(
-        state = ExpenseCardViewState(
-            moneySpent = 123.45,
-            comparisonAmount = -12.34,
-            comparisonDirection = 1,
-            isLoading = false,
-        )
-    )
 }

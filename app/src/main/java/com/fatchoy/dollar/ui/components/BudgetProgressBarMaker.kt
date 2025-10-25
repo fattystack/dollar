@@ -14,19 +14,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.fatchoy.dollar.ui.styling.DollarColors
-import com.fatchoy.dollar.ui.styling.DollarScale
-import com.fatchoy.dollar.ui.styling.DollarWidth
+import kotlin.math.min
 
 @Composable
 internal fun BudgetProgressBarModelMaker(
     progress: Float,
-    icon: ImageVector = Icons.Default.Check,
-    iconTint: Color = Color.Unspecified,
+    viewState: BudgetProgressState = BudgetProgressState()
 ) {
     val p by animateFloatAsState(progress.coerceIn(0f, 1f), label = "ring")
 
@@ -43,21 +39,21 @@ internal fun BudgetProgressBarModelMaker(
     ) {
         val parentSize: Dp = minOf(maxWidth, maxHeight)
 
-        val innerDiameter: Dp = (parentSize - DollarWidth.S * 2 * DollarScale.FULL).coerceAtLeast(0.dp)
-        val iconSize: Dp = (innerDiameter * DollarScale.HALF).coerceAtLeast(0.dp)
+        val innerDiameter: Dp = (parentSize - viewState.strokeWidth * 2f).coerceAtLeast(0.dp)
+        val iconSize: Dp = (innerDiameter * viewState.iconScale).coerceAtLeast(0.dp)
 
         CircularProgressIndicator(
             progress = { p },
             color = ringColor,
-            strokeWidth = DollarWidth.S,
+            strokeWidth = viewState.strokeWidth,
             modifier = Modifier.fillMaxSize(),
-            trackColor = DollarColors.GRAY,
+            trackColor = viewState.trackColor
         )
 
         Icon(
-            imageVector = icon,
-            contentDescription = null,
-            tint = if (iconTint == Color.Unspecified) ringColor else iconTint,
+            imageVector = viewState.icon,
+            contentDescription = viewState.contentDescription,
+            tint = if (viewState.iconTint == Color.Unspecified) ringColor else viewState.iconTint,
             modifier = Modifier.size(iconSize)
         )
     }
@@ -67,6 +63,7 @@ internal fun BudgetProgressBarModelMaker(
 @Composable
 internal fun BudgetProgressBarModelMakerPreview() {
     BudgetProgressBarModelMaker(
-        progress = 0.9f
+        progress = 0.3f,
+        viewState = BudgetProgressState(icon = Icons.Default.Check)
     )
 }
