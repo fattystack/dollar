@@ -9,7 +9,7 @@ internal fun formatCurrency(
     locale: Locale = Locale.getDefault()
 ): String {
     val nf = NumberFormat.getCurrencyInstance(locale)
-    return nf.format(value)              // $15,250.80
+    return nf.format(value) // $15,250.80
 }
 
 internal fun formatDelta(
@@ -21,8 +21,8 @@ internal fun formatDelta(
     val absStr = nf.format(abs(delta))
     return when {
         delta > 0.0 && showPlus -> "+$absStr"
-        delta > 0.0             -> absStr
-        delta < 0.0             -> "-$absStr"
-        else                    -> "+$absStr"
+        delta > 0.0 -> absStr
+        delta < 0.0 -> "-$absStr"
+        else -> "+$absStr"
     }
 }

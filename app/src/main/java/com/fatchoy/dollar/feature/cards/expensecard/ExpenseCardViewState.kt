@@ -7,5 +7,4 @@ internal data class ExpenseCardViewState(
     val comparisonDirection: Int = 0,
     val isLoading: Boolean,
     val error: String? = null
-) {
-}
+)
