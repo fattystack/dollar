@@ -17,7 +17,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import kotlin.math.min
 
 @Composable
 internal fun BudgetProgressBarModelMaker(
@@ -28,9 +27,8 @@ internal fun BudgetProgressBarModelMaker(
 
     val ringColor = when {
         progress >= 0.9f -> DollarColors.PROGRESS_RED
-        progress >= 0.7f ->  DollarColors.PROGRESS_YELLOW
+        progress >= 0.7f -> DollarColors.PROGRESS_YELLOW
         else -> DollarColors.PROGRESS_GREEN
-
     }
 
     BoxWithConstraints(

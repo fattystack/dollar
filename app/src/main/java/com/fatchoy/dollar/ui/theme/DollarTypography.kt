@@ -21,7 +21,7 @@ object DollarTypography {
         platformStyle = PlatformTextStyle(includeFontPadding = false)
     )
 
-    val H2= TextStyle(
+    val H2 = TextStyle(
         fontSize = 28.sp,
         lineHeight = 1.25.em,
         fontWeight = FontWeight.Medium,

@@ -2,7 +2,6 @@ package com.fatchoy.dollar.feature.cards.budgetCard
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -10,8 +9,11 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.fatchoy.dollar.R
 import com.fatchoy.dollar.ui.components.BudgetProgressBarModelMaker
 import com.fatchoy.dollar.ui.styling.DollarColors
@@ -25,32 +27,30 @@ import java.time.temporal.ChronoUnit
 
 @Composable
 internal fun BudgetCardView(viewState: BudgetCardViewState) {
-    Card (
+    Card(
         elevation = CardDefaults.cardElevation(defaultElevation = DollarElevation.R),
-    ){
-            Column (
-                modifier = Modifier.padding(vertical = DollarPadding.S, horizontal = DollarPadding.XL),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(DollarSpace.XS)
-            ){
-                Box(modifier = Modifier.size(160.dp)) {
-                    BudgetProgressBarModelMaker(
-                        progress = viewState.budgetProgress,
-                    )
-                }
-
-                Column (
-                    verticalArrangement = Arrangement.spacedBy(DollarSpace.S),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ){
-                    BudgetTitleText(viewState.budgetTitle)
-                    BudgetAmountText(viewState.budgetUsed, viewState.budgetAmount)
-                    BudgetResetTime(viewState.budgetResetDate)
-                }
+    ) {
+        Column(
+            modifier = Modifier.padding(vertical = DollarPadding.S, horizontal = DollarPadding.XL),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(DollarSpace.XS)
+        ) {
+            Box(modifier = Modifier.size(160.dp)) {
+                BudgetProgressBarModelMaker(
+                    progress = viewState.budgetProgress,
+                )
             }
 
+            Column(
+                verticalArrangement = Arrangement.spacedBy(DollarSpace.S),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                BudgetTitleText(viewState.budgetTitle)
+                BudgetAmountText(viewState.budgetUsed, viewState.budgetAmount)
+                BudgetResetTime(viewState.budgetResetDate)
+            }
         }
-
+    }
 }
 
 @Composable
