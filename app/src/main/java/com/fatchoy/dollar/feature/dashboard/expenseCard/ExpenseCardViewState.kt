@@ -1,4 +1,4 @@
-package com.fatchoy.dollar.feature.cards.expenseCard
+package com.fatchoy.dollar.feature.dashboard.expenseCard
 
 internal data class ExpenseCardViewState(
     val title: String? = "This Month's Spending",

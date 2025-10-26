@@ -1,8 +1,8 @@
-package com.fatchoy.dollar.feature.cards.budgetCard
+package com.fatchoy.dollar.feature.budgets.budgetCard
 
 import java.time.LocalDate
 
-internal class BudgetCardViewState(
+data class BudgetCardViewState(
     val budgetTitle: String,
     val budgetAmount: Double,
     val budgetUsed: Double,

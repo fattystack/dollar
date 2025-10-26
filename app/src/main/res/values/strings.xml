@@ -9,8 +9,7 @@
         <item quantity = "other">Resets in %s days </item>
     </plurals>
 
-    <string name = "budget_used_to_amount_ratio">
-        $1%s / $2%s
-    </string>
+    <string name="budget_used_to_amount_ratio">$%1$s / $%2$s</string>
+
 
 </resources>

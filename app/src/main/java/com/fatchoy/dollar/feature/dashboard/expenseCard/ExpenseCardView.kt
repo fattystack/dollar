@@ -1,4 +1,4 @@
-package com.fatchoy.dollar.feature.cards.expenseCard
+package com.fatchoy.dollar.feature.dashboard.expenseCard
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

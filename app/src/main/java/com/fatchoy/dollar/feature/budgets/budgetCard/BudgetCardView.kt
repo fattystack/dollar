@@ -1,4 +1,4 @@
-package com.fatchoy.dollar.feature.cards.budgetCard
+package com.fatchoy.dollar.feature.budgets.budgetCard
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

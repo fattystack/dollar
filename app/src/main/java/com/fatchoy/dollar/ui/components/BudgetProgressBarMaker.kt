@@ -17,6 +17,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.fatchoy.dollar.ui.styling.DollarColors
+import com.fatchoy.dollar.ui.styling.DollarScale
 
 @Composable
 internal fun BudgetProgressBarModelMaker(
