@@ -2,6 +2,7 @@ package com.fatchoy.dollar.dummyAPI
 
 import com.fatchoy.dollar.api.ExpenseApi
 import kotlinx.coroutines.delay
+import java.io.IOException
 
 class FakeExpenseApi(
     private val thisMonth: Double = 15250.80,
@@ -11,14 +12,14 @@ class FakeExpenseApi(
 ) : ExpenseApi {
 
     override suspend fun getThisMonthSpending(): Double {
-        delay(artificialDelayMs)
-        if (fail) throw RuntimeException("Simulated network error")
+        if (artificialDelayMs > 0) delay(artificialDelayMs)
+        if (fail) throw IOException("Simulated fetch error (this month)") as Throwable
         return thisMonth
     }
 
     override suspend fun getPreviousMonthSpending(): Double {
-        delay(artificialDelayMs)
-        if (fail) throw RuntimeException("Simulated network error")
+        if (artificialDelayMs > 0) delay(artificialDelayMs)
+        if (fail) throw IOException("Simulated fetch error (previous month)") as Throwable
         return previousMonth
     }
 }

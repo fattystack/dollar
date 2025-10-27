@@ -5,24 +5,21 @@ import androidx.lifecycle.viewModelScope
 import com.fatchoy.dollar.dummyAPI.FakeExpenseApi
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.channels.BufferOverflow
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import java.time.Clock
+import java.io.IOException
 
 internal class ExpenseCardChildViewModel(
     initialState: ExpenseCardViewState,
     private val api: FakeExpenseApi,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
-    private val clock: Clock = Clock.systemDefaultZone()
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(initialState)
 
-    val state : StateFlow<ExpenseCardViewState> = _state.asStateFlow()
+    val state: StateFlow<ExpenseCardViewState> = _state.asStateFlow()
 
     fun refresh() {
         fetchData()
@@ -36,7 +33,7 @@ internal class ExpenseCardChildViewModel(
         _state.value = _state.value.copy(moneySpent = newAmount, error = null)
     }
 
-    fun setLoading(isLoading:Boolean) {
+    fun setLoading(isLoading: Boolean) {
         _state.value = _state.value.copy(isLoading = isLoading, error = null)
     }
 
@@ -45,8 +42,7 @@ internal class ExpenseCardChildViewModel(
     }
 
     private fun fetchData() {
-
-        if(_state.value.isLoading) return
+        if (_state.value.isLoading) return
 
         _state.value = _state.value.copy(isLoading = true, error = null)
 
@@ -58,7 +54,6 @@ internal class ExpenseCardChildViewModel(
                 val comparison = computeComparison(current, previous)
                 val direction = computeDirection(comparison)
 
-
                 _state.value = _state.value.copy(
                     moneySpent = current,
                     comparisonAmount = comparison,
@@ -66,11 +61,9 @@ internal class ExpenseCardChildViewModel(
                     isLoading = false,
                     error = null
                 )
-            } catch(it: Throwable) {
-                _state.value = _state.value.copy(
-                    isLoading = false,
-                    error = it.message ?: "unknown error"
-                )
+            } catch (e: IOException) {
+                println("ExpenseCard fetch IO error: ${e.message}")
+                _state.value = _state.value.copy(isLoading = false, error = e.message ?: "Network error")
             }
         }
     }
@@ -79,7 +72,7 @@ internal class ExpenseCardChildViewModel(
         return current - previous
     }
 
-    private fun computeDirection(comparison:Double) :Int {
+    private fun computeDirection(comparison: Double): Int {
         return when {
             comparison > 0.0 -> 2
             comparison < 0.0 -> 1
