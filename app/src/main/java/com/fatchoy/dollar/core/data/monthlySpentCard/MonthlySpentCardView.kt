@@ -11,14 +11,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ElevatedCard
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.tooling.preview.Preview
 import com.fatchoy.dollar.ui.styling.DollarColors
 import com.fatchoy.dollar.ui.styling.DollarSize
@@ -27,7 +24,7 @@ import com.fatchoy.dollar.ui.theme.DollarTheme
 import com.fatchoy.dollar.ui.theme.DollarTypography
 
 @Composable
-fun MonthlySpentCardView(
+internal fun MonthlySpentCardView(
     state: MonthlySpentCardViewState,
     modifier: Modifier = Modifier
 ) {
@@ -43,17 +40,17 @@ fun MonthlySpentCardView(
             ) {
                 GetCardTitle()
                 GetBudgetSpentText(
-                    amountSpent = state.BudgetSpent,
-                    budgetAmount = state.TotalBudget
+                    amountSpent = state.budgetSpent,
+                    budgetAmount = state.totalBudget
                 )
             }
-            GetBudgetProgressBar(progress = state.BudgetProgress)
+            GetBudgetProgressBar(progress = state.budgetProgress)
         }
     }
 }
 
 @Composable
-fun GetCardTitle(modifier: Modifier = Modifier) {
+fun GetCardTitle() {
     Text(
         text = "Monthly Spending",
         style = DollarTypography.SECTION_HEADER,
@@ -61,7 +58,7 @@ fun GetCardTitle(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun GetBudgetSpentText(modifier: Modifier = Modifier, amountSpent: String, budgetAmount: String){
+fun GetBudgetSpentText(amountSpent: String, budgetAmount: String) {
     Text(
         text = "$amountSpent of $budgetAmount",
         style = DollarTypography.H4_LIGHT
@@ -103,27 +100,27 @@ fun MonthlySpentCardPreview() {
             // Normal progress
             MonthlySpentCardView(
                 state = MonthlySpentCardViewState(
-                    BudgetSpent = "$1,200",
-                    TotalBudget = "$2,000",
-                    BudgetProgress = 0.6f
+                    budgetSpent = "$1,200",
+                    totalBudget = "$2,000",
+                    budgetProgress = 0.6f
                 )
             )
 
             // Almost at budget
             MonthlySpentCardView(
                 state = MonthlySpentCardViewState(
-                    BudgetSpent = "$1,850",
-                    TotalBudget = "$2,000",
-                    BudgetProgress = 0.925f
+                    budgetSpent = "$1,850",
+                    totalBudget = "$2,000",
+                    budgetProgress = 0.925f
                 )
             )
 
             // Over budget
             MonthlySpentCardView(
                 state = MonthlySpentCardViewState(
-                    BudgetSpent = "$2,450",
-                    TotalBudget = "$2,000",
-                    BudgetProgress = 1.0f
+                    budgetSpent = "$2,450",
+                    totalBudget = "$2,000",
+                    budgetProgress = 1.0f
                 )
             )
         }

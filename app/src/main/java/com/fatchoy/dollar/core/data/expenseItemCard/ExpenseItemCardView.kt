@@ -27,7 +27,6 @@ import com.fatchoy.dollar.ui.styling.DollarSpace
 import com.fatchoy.dollar.ui.theme.DollarTheme
 import com.fatchoy.dollar.ui.theme.DollarTypography
 
-// TODO: FIX STYLING
 @Composable
 fun ExpenseItemCardView(
     state: ExpenseItemCardViewState,
@@ -46,7 +45,7 @@ fun ExpenseItemCardView(
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(DollarSpace.S)
-            ){
+            ) {
                 GetCardIcon(
                     categoryIcon = state.categoryIcon,
                     categoryIconBackground = state.categoryIconBackground

@@ -18,6 +18,5 @@ fun DashboardView(
             state = viewState.expenseSummaryCardState,
             modifier = modifier
         )
-
     }
 }
