@@ -5,7 +5,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-internal fun CreateApiService(apiUrl: String = "TempApiUrl.com") : ApiService {
+internal fun createApiService(apiUrl: String = "TempApiUrl.com"): ApiService {
     val logger = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }

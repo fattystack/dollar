@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.fatchoy.dollar.R
 import com.fatchoy.dollar.ui.components.BudgetProgressBarModelMaker
@@ -86,6 +87,7 @@ internal fun getRemainingDays(date1: LocalDate, date2: LocalDate): Long {
 
 const val PREVIEW_DAYS_UNTIL_RESET = 15
 
+@Preview
 @Composable
 internal fun BudgetCardViewPreview() {
     BudgetCardView(
