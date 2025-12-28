@@ -6,7 +6,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.fatchoy.dollar.feature.dashboard.expenseSummaryCard.ExpenseSummaryCardView
 
-
 @Composable
 fun DashboardView(
     viewState: DashboardViewState,

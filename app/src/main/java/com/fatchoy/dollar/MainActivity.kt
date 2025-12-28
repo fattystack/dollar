@@ -35,22 +35,16 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DollarApp() {
     val navController = rememberNavController()
-
     Scaffold(modifier = Modifier.fillMaxSize()) {
         NavHost(
             navController = navController,
             startDestination = "dashboard",
             modifier = Modifier.padding(it)
         ) {
-            // Define your composable destinations here
             composable("dashboard") {
                 val dashboardState = DashboardViewState(
                     user = UserViewState.Authenticated(
-                        user = UserUI(
-                            id = "u-123",
-                            userName = "John Doe",
-                            avatarUrl = null
-                        )
+                        user = UserUI()
                     ),
                     expenses = ExpensesViewState(
                         userHeader = ExpensesViewState.UserHeader(
