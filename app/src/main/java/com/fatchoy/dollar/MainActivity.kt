@@ -14,12 +14,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.fatchoy.dollar.core.data.expenseSummaryCard.ExpenseSummaryCardViewState
 import com.fatchoy.dollar.core.data.expenses.ExpensesViewState
 import com.fatchoy.dollar.core.data.user.UserViewState
 import com.fatchoy.dollar.core.ui.user.UserUI
 import com.fatchoy.dollar.feature.dashboard.DashboardView
 import com.fatchoy.dollar.feature.dashboard.DashboardViewState
-import com.fatchoy.dollar.core.data.expenseSummaryCard.ExpenseSummaryCardViewState
 import com.fatchoy.dollar.ui.theme.DollarTheme
 
 class MainActivity : ComponentActivity() {
