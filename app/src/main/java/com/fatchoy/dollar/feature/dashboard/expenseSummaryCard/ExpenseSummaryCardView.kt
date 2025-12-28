@@ -1,4 +1,4 @@
-package com.fatchoy.dollar.feature.dashboard.expenseCard
+package com.fatchoy.dollar.feature.dashboard.expenseSummaryCard
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,7 +28,7 @@ import com.fatchoy.dollar.ui.styling.trendColor
 import com.fatchoy.dollar.ui.theme.DollarTypography
 
 @Composable
-internal fun ExpenseCardView(state: ExpenseCardViewState, modifier: Modifier = Modifier) {
+internal fun ExpenseSummaryCardView(state: ExpenseSummaryCardViewState, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier
             .fillMaxWidth()
