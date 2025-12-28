@@ -1,6 +1,6 @@
-package com.fatchoy.dollar.feature.dashboard.expenseCard
+package com.fatchoy.dollar.feature.dashboard.expenseSummaryCard
 
-internal data class ExpenseCardViewState(
+data class ExpenseSummaryCardViewState(
     val title: String? = "This Month's Spending",
     val moneySpent: Double,
     val comparisonAmount: Double = 0.00,

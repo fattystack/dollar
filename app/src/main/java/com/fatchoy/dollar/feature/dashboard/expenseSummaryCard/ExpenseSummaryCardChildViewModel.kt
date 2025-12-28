@@ -1,4 +1,4 @@
-package com.fatchoy.dollar.feature.dashboard.expenseCard
+package com.fatchoy.dollar.feature.dashboard.expenseSummaryCard
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,15 +11,15 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-internal class ExpenseCardChildViewModel(
-    initialState: ExpenseCardViewState,
+internal class ExpenseSummaryCardChildViewModel(
+    initialState: ExpenseSummaryCardViewState,
     private val api: FakeExpenseApi,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(initialState)
 
-    val state: StateFlow<ExpenseCardViewState> = _state.asStateFlow()
+    val state: StateFlow<ExpenseSummaryCardViewState> = _state.asStateFlow()
 
     fun refresh() {
         fetchData()
