@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -20,6 +21,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.fatchoy.dollar.R
+import com.fatchoy.dollar.ui.styling.DollarPadding
+import com.fatchoy.dollar.ui.styling.DollarSize
+import com.fatchoy.dollar.ui.styling.DollarSpace
+import com.fatchoy.dollar.ui.theme.DollarTheme
 import com.fatchoy.dollar.ui.theme.DollarTypography
 
 // TODO: FIX STYLING
@@ -30,22 +35,27 @@ fun ExpenseItemCardView(
 
 ) {
     // Implementation of the ExpenseItemCardView goes here
-
     ElevatedCard {
         Row(
             modifier = modifier
-                .padding(16.dp),
+                .padding(DollarPadding.R)
+                .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            GetCardIcon(
-                categoryIcon = state.categoryIcon,
-                categoryIconBackground = state.categoryIconBackground
-            )
-            GetCardText(
-                merchantName = state.merchantName,
-                categoryName = state.categoryName
-            )
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(DollarSpace.S)
+            ){
+                GetCardIcon(
+                    categoryIcon = state.categoryIcon,
+                    categoryIconBackground = state.categoryIconBackground
+                )
+                GetCardText(
+                    merchantName = state.merchantName,
+                    categoryName = state.categoryName
+                )
+            }
             GetCardAmount(
                 amountFormatted = state.amountFormatted
             )
@@ -57,7 +67,7 @@ fun ExpenseItemCardView(
 fun GetCardIcon(categoryIcon: Int, categoryIconBackground: Color) {
     Box(
         modifier = Modifier
-            .size(56.dp)
+            .size(DollarSize.CategoryIconContainer)
             .background(
                 color = categoryIconBackground.copy(alpha = 0.2f),
                 shape = CircleShape
@@ -68,7 +78,7 @@ fun GetCardIcon(categoryIcon: Int, categoryIconBackground: Color) {
             painter = painterResource(id = categoryIcon),
             contentDescription = null,
             tint = categoryIconBackground,
-            modifier = Modifier.size(24.dp)
+            modifier = Modifier.size(DollarSize.CategoryIconSize)
         )
     }
 }
@@ -98,16 +108,23 @@ fun GetCardAmount(amountFormatted: String) {
 @Preview(showBackground = true)
 @Composable
 fun ExpenseItemCardPreview() {
-    ExpenseItemCardView(
-        state = ExpenseItemCardViewState(
-            id = "1",
-            merchantName = "Starbucks",
-            categoryName = "Dining Out",
-            categoryIcon = R.drawable.ic_cart, // just a preview, replace later
-            categoryIconBackground = Color(0xFFE57373), // light red
-            amount = 5.50,
-            amountFormatted = "-$5.50",
-            date = "Dec 27"
-        )
-    )
+    DollarTheme {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            ExpenseItemCardView(
+                state = ExpenseItemCardViewState(
+                    id = "1",
+                    merchantName = "Starbucks",
+                    categoryName = "Dining Out",
+                    categoryIcon = R.drawable.ic_cart, // just a preview, replace later
+                    categoryIconBackground = Color(0xFFE57373), // light red
+                    amount = 5.50,
+                    amountFormatted = "-$5.50",
+                    date = "Dec 27"
+                )
+            )
+        }
+    }
 }
