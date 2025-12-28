@@ -48,6 +48,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.room.ktx)
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.7")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
