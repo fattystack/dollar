@@ -19,7 +19,7 @@ import com.fatchoy.dollar.core.data.user.UserViewState
 import com.fatchoy.dollar.core.ui.user.UserUI
 import com.fatchoy.dollar.feature.dashboard.DashboardView
 import com.fatchoy.dollar.feature.dashboard.DashboardViewState
-import com.fatchoy.dollar.feature.dashboard.expenseSummaryCard.ExpenseSummaryCardViewState
+import com.fatchoy.dollar.core.data.expenseSummaryCard.ExpenseSummaryCardViewState
 import com.fatchoy.dollar.ui.theme.DollarTheme
 
 class MainActivity : ComponentActivity() {

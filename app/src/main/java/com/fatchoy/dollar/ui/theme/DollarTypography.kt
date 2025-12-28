@@ -62,4 +62,15 @@ object DollarTypography {
         platformStyle = PlatformTextStyle(includeFontPadding = false),
         color = DollarColors.GRAY
     )
+
+    val SECTION_HEADER = TextStyle(
+        fontSize = 20.sp,
+        lineHeight = 1.25.em,
+        fontWeight = FontWeight.SemiBold,
+        lineHeightStyle = LineHeightStyle(
+            alignment = LineHeightStyle.Alignment.Proportional,
+            trim = LineHeightStyle.Trim.Both
+        ),
+        platformStyle = PlatformTextStyle(includeFontPadding = false)
+    )
 }
