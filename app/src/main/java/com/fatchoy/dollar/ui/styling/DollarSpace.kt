@@ -8,4 +8,6 @@ internal object DollarSpace {
     val R = 16.dp
     val L = 24.dp
     val XL = 32.dp
+    val XXL = 48.dp
+    val XXXL = 64.dp
 }

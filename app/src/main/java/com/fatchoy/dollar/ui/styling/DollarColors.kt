@@ -8,4 +8,8 @@ internal object DollarColors {
     val PROGRESS_RED: Color = Color(0xFFE57373)
     val PROGRESS_YELLOW: Color = Color(0xFFFFB74D)
     val PROGRESS_GREEN: Color = Color(0xFF81C784)
+
+    val MONTHLY_RED: Color = Color(0xFFD84545)
+
+    val MONTHLY_GREEN: Color = Color(0xFF2E7D6E)
 }
