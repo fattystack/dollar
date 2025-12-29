@@ -14,6 +14,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.fatchoy.dollar.dummyAPI.MockDashboardData
 import com.fatchoy.dollar.feature.dashboard.DashboardView
+import com.fatchoy.dollar.ui.components.AddExpenseButton
 import com.fatchoy.dollar.ui.styling.DollarColors
 
 class MainActivity : ComponentActivity() {
@@ -31,8 +32,8 @@ fun DollarApp() {
     val navController = rememberNavController()
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        containerColor = DollarColors.APP_BACKGROUND_COLOR
-
+        containerColor = DollarColors.APP_BACKGROUND_COLOR,
+        floatingActionButton = { AddExpenseButton(navController) },
     ) {
         NavHost(
             navController = navController,
