@@ -33,7 +33,7 @@ fun DollarApp() {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         containerColor = DollarColors.APP_BACKGROUND_COLOR,
-        floatingActionButton = {AddExpenseButton(navController)},
+        floatingActionButton = { AddExpenseButton(navController) },
     ) {
         NavHost(
             navController = navController,
