@@ -12,4 +12,6 @@ internal object DollarColors {
     val MONTHLY_RED: Color = Color(0xFFD84545)
 
     val MONTHLY_GREEN: Color = Color(0xFF2E7D6E)
+
+    val CATEGORY_COLOR: Color = Color(0xFF2E7D6E)
 }
