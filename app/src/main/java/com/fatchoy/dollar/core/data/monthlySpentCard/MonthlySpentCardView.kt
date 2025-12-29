@@ -18,17 +18,24 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import com.fatchoy.dollar.ui.styling.DollarColors
+import com.fatchoy.dollar.ui.styling.DollarPadding
 import com.fatchoy.dollar.ui.styling.DollarSize
 import com.fatchoy.dollar.ui.styling.DollarSpace
+import com.fatchoy.dollar.ui.styling.defaultCardColors
 import com.fatchoy.dollar.ui.theme.DollarTheme
 import com.fatchoy.dollar.ui.theme.DollarTypography
 
 @Composable
-internal fun MonthlySpentCardView(
+fun MonthlySpentCardView(
     state: MonthlySpentCardViewState,
     modifier: Modifier = Modifier
 ) {
-    ElevatedCard(modifier = modifier.fillMaxWidth()) {
+    ElevatedCard(
+        modifier = modifier
+            .padding(horizontal = DollarPadding.R)
+            .fillMaxWidth(),
+        colors = defaultCardColors()
+    ) {
         Column(
             modifier = Modifier.padding(DollarSpace.L),
             verticalArrangement = Arrangement.spacedBy(DollarSpace.R)
@@ -89,9 +96,11 @@ fun GetBudgetProgressBar(modifier: Modifier = Modifier, progress: Float) {
     }
 }
 
+internal const val HIGH_BUDGET_THRESHOLD = 0.9f
+
 @Preview(showBackground = true)
 @Composable
-fun MonthlySpentCardPreview() {
+internal fun MonthlySpentCardPreview() {
     DollarTheme {
         Column(
             modifier = Modifier.padding(DollarSpace.L),

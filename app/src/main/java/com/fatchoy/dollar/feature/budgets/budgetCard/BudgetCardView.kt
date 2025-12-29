@@ -27,7 +27,7 @@ import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
 @Composable
-internal fun BudgetCardView(viewState: BudgetCardViewState) {
+fun BudgetCardView(viewState: BudgetCardViewState) {
     Card(
         elevation = CardDefaults.cardElevation(defaultElevation = DollarElevation.R),
     ) {
@@ -55,7 +55,7 @@ internal fun BudgetCardView(viewState: BudgetCardViewState) {
 }
 
 @Composable
-internal fun BudgetTitleText(title: String) {
+fun BudgetTitleText(title: String) {
     Text(
         text = title,
         style = DollarTypography.H2
@@ -63,7 +63,7 @@ internal fun BudgetTitleText(title: String) {
 }
 
 @Composable
-internal fun BudgetAmountText(used: Double, amount: Double) {
+fun BudgetAmountText(used: Double, amount: Double) {
     Text(
         text = stringResource(R.string.budget_used_to_amount_ratio, used.toString(), amount.toString()),
         style = DollarTypography.Body
@@ -71,7 +71,7 @@ internal fun BudgetAmountText(used: Double, amount: Double) {
 }
 
 @Composable
-internal fun BudgetResetTime(date: LocalDate, clock: Clock = Clock.systemDefaultZone()) {
+fun BudgetResetTime(date: LocalDate, clock: Clock = Clock.systemDefaultZone()) {
     val today = LocalDate.now(clock)
     val remainingDays: Int = getRemainingDays(date, today).toInt()
     Text(
@@ -81,7 +81,7 @@ internal fun BudgetResetTime(date: LocalDate, clock: Clock = Clock.systemDefault
     )
 }
 
-internal fun getRemainingDays(date1: LocalDate, date2: LocalDate): Long {
+fun getRemainingDays(date1: LocalDate, date2: LocalDate): Long {
     return ChronoUnit.DAYS.between(date2, date1)
 }
 
@@ -89,7 +89,7 @@ const val PREVIEW_DAYS_UNTIL_RESET = 15
 
 @Preview
 @Composable
-internal fun BudgetCardViewPreview() {
+fun BudgetCardViewPreview() {
     BudgetCardView(
         BudgetCardViewState(
             budgetTitle = "Groceries",

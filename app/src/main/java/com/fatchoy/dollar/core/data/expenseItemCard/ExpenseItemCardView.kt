@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -21,9 +22,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.fatchoy.dollar.R
+import com.fatchoy.dollar.ui.styling.DollarColors
 import com.fatchoy.dollar.ui.styling.DollarPadding
 import com.fatchoy.dollar.ui.styling.DollarSize
 import com.fatchoy.dollar.ui.styling.DollarSpace
+import com.fatchoy.dollar.ui.styling.defaultCardColors
 import com.fatchoy.dollar.ui.theme.DollarTheme
 import com.fatchoy.dollar.ui.theme.DollarTypography
 
@@ -34,7 +37,10 @@ fun ExpenseItemCardView(
 
 ) {
     // Implementation of the ExpenseItemCardView goes here
-    ElevatedCard {
+    ElevatedCard(
+        colors = defaultCardColors(),
+        shape = RoundedCornerShape(DollarSize.CornerRadiusL)
+    ) {
         Row(
             modifier = modifier
                 .padding(DollarPadding.R)
@@ -106,7 +112,7 @@ fun GetCardAmount(amountFormatted: String) {
 
 @Preview(showBackground = true)
 @Composable
-fun ExpenseItemCardPreview() {
+internal fun ExpenseItemCardPreview() {
     DollarTheme {
         Column(
             modifier = Modifier.padding(16.dp),
@@ -118,12 +124,16 @@ fun ExpenseItemCardPreview() {
                     merchantName = "Starbucks",
                     categoryName = "Dining Out",
                     categoryIcon = R.drawable.ic_cart, // just a preview, replace later
-                    categoryIconBackground = Color(0xFFE57373), // light red
-                    amount = 5.50,
-                    amountFormatted = "-$5.50",
+                    categoryIconBackground = DollarColors.MOCK_EXPENSE_RED,
+                    amount = PREVIEW_AMOUNT,
+                    amountFormatted = PREVIEW_FORMATTED_AMOUNT,
                     date = "Dec 27"
                 )
             )
         }
     }
 }
+
+// Preview constants
+internal const val PREVIEW_AMOUNT = 5.50
+internal const val PREVIEW_FORMATTED_AMOUNT = "-$5.50"

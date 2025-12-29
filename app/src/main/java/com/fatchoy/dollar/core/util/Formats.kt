@@ -4,7 +4,7 @@ import java.text.NumberFormat
 import java.util.Locale
 import kotlin.math.abs
 
-internal fun formatCurrency(
+fun formatCurrency(
     value: Double,
     locale: Locale = Locale.getDefault()
 ): String {
@@ -12,7 +12,7 @@ internal fun formatCurrency(
     return nf.format(value) // $15,250.80
 }
 
-internal fun formatDelta(
+fun formatDelta(
     delta: Double,
     locale: Locale = Locale.getDefault(),
     showPlus: Boolean = true

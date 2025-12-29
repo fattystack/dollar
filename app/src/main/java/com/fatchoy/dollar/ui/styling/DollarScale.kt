@@ -1,6 +1,6 @@
 package com.fatchoy.dollar.ui.styling
 
-internal object DollarScale {
+object DollarScale {
     const val NONE = 0f
     const val QUARTER = 0.25f
     const val THIRD = 0.25f

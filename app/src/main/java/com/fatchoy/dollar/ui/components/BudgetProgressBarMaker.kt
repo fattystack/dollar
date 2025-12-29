@@ -21,7 +21,7 @@ import com.fatchoy.dollar.ui.styling.DollarColors
 import com.fatchoy.dollar.ui.styling.DollarScale
 
 @Composable
-internal fun BudgetProgressBarModelMaker(
+fun BudgetProgressBarModelMaker(
     progress: Float,
     viewState: BudgetProgressState = BudgetProgressState()
 ) {
@@ -61,7 +61,7 @@ internal fun BudgetProgressBarModelMaker(
 
 @Preview
 @Composable
-internal fun BudgetProgressBarModelMakerPreview() {
+fun BudgetProgressBarModelMakerPreview() {
     BudgetProgressBarModelMaker(
         progress = 0.3f,
         viewState = BudgetProgressState(icon = Icons.Default.Check)

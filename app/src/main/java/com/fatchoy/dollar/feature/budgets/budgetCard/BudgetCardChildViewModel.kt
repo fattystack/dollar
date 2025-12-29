@@ -11,7 +11,7 @@ import java.time.Clock
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
-internal class BudgetCardChildViewModel(
+class BudgetCardChildViewModel(
     initialState: BudgetCardViewState,
     private val clock: Clock = Clock.systemDefaultZone()
 ) : ViewModel() {
@@ -66,7 +66,7 @@ private fun computeProgress(used: Double, amount: Double): Float {
 }
 
 /** Utility: days between today and reset date (not stored on state — UI can compute if it needs) */
-internal fun computeRemainingDays(resetDate: LocalDate, clock: Clock = Clock.systemDefaultZone()): Long {
+fun computeRemainingDays(resetDate: LocalDate, clock: Clock = Clock.systemDefaultZone()): Long {
     val today = LocalDate.now(clock)
     return ChronoUnit.DAYS.between(today, resetDate)
 }

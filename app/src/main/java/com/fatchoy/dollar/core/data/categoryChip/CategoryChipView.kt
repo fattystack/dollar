@@ -22,7 +22,7 @@ import com.fatchoy.dollar.ui.styling.DollarSpace
 import com.fatchoy.dollar.ui.theme.DollarTypography
 
 @Composable
-internal fun CategoryChipView(
+fun CategoryChipView(
     state: CategoryChipViewState,
     modifier: Modifier = Modifier
 ) {
@@ -43,7 +43,7 @@ internal fun CategoryChipView(
 }
 
 @Composable
-internal fun GetCategoryIcon(categoryIcon: Int) {
+fun GetCategoryIcon(categoryIcon: Int) {
     Icon(
         painter = painterResource(id = categoryIcon),
         contentDescription = null,
@@ -53,7 +53,7 @@ internal fun GetCategoryIcon(categoryIcon: Int) {
 }
 
 @Composable
-internal fun GetCategoryText(categoryName: String) {
+fun GetCategoryText(categoryName: String) {
     Text(
         text = categoryName,
         color = DollarColors.CATEGORY_COLOR,
