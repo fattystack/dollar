@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-internal class ExpenseSummaryCardChildViewModel(
+class ExpenseSummaryCardChildViewModel(
     initialState: ExpenseSummaryCardViewState,
     private val api: FakeExpenseApi,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,

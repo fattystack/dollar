@@ -23,18 +23,18 @@ import com.fatchoy.dollar.core.util.formatCurrency
 import com.fatchoy.dollar.core.util.formatDelta
 import com.fatchoy.dollar.ui.styling.ExpenseCardTokens
 import com.fatchoy.dollar.ui.styling.Semantic
-import com.fatchoy.dollar.ui.styling.expenseCardColours
+import com.fatchoy.dollar.ui.styling.defaultCardColors
 import com.fatchoy.dollar.ui.styling.trendColor
 import com.fatchoy.dollar.ui.theme.DollarTypography
 
 @Composable
-internal fun ExpenseSummaryCardView(state: ExpenseSummaryCardViewState, modifier: Modifier = Modifier) {
+fun ExpenseSummaryCardView(state: ExpenseSummaryCardViewState, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp),
         shape = RoundedCornerShape(ExpenseCardTokens.Corner),
-        colors = expenseCardColours(),
+        colors = defaultCardColors(),
         elevation = CardDefaults.cardElevation(ExpenseCardTokens.Elevation)
     ) {
         Column(Modifier.padding(ExpenseCardTokens.Padding)) {
@@ -52,7 +52,7 @@ internal fun ExpenseSummaryCardView(state: ExpenseSummaryCardViewState, modifier
 }
 
 @Composable
-internal fun GetMonthlyExpenses(moneySpent: Double) {
+fun GetMonthlyExpenses(moneySpent: Double) {
     Text(
         text = formatCurrency(moneySpent),
         style = DollarTypography.H1
@@ -60,7 +60,7 @@ internal fun GetMonthlyExpenses(moneySpent: Double) {
 }
 
 @Composable
-internal fun GetMonthlyComparison(moneyComparison: Double, comparisonDirection: Int) {
+fun GetMonthlyComparison(moneyComparison: Double, comparisonDirection: Int) {
     val trendColor = trendColor(comparisonDirection)
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -80,7 +80,7 @@ internal fun GetMonthlyComparison(moneyComparison: Double, comparisonDirection: 
 }
 
 @Composable
-internal fun getIcon(direction: Int): Painter {
+fun getIcon(direction: Int): Painter {
     return when (direction) {
         // up
         1 -> painterResource(R.drawable.down_trend_icon)
