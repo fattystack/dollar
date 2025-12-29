@@ -74,10 +74,10 @@ fun GetBudgetSpentText(amountSpent: String, budgetAmount: String) {
 
 @Composable
 fun GetBudgetProgressBar(modifier: Modifier = Modifier, progress: Float) {
-    var color = DollarColors.MONTHLY_GREEN
+    var color = DollarColors.GREEN
     when {
         progress >= 0.9f -> {
-            color = DollarColors.MONTHLY_RED
+            color = DollarColors.RED
         }
     }
     Box(
