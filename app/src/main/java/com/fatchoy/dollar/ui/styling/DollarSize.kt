@@ -27,4 +27,7 @@ object DollarSize {
 
     // Progress bar
     val ProgressBarHeight = 8.dp
+
+    val NOTE_HEIGHT = 120.dp
+    val EXPENSE_BUTTON_SIZE = 56.dp
 }

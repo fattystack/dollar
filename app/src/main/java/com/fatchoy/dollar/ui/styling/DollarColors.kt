@@ -18,6 +18,8 @@ internal object DollarColors {
 
     val CATEGORY_COLOR: Color = Color(0xFF2E7D6E)
 
+    val FORM_BACKGROUND: Color = Color(0XFFF3F4F6)
+
     // Mock data colors
     val MOCK_EXPENSE_RED: Color = Color(0xFFE57373)
     val MOCK_EXPENSE_BLUE: Color = Color(0xFF64B5F6)

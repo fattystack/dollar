@@ -1,4 +1,4 @@
-package com.fatchoy.dollar.core.data.expenseItemCard
+package com.fatchoy.dollar.core.data.expenses.expenseItemCard
 
 import androidx.compose.ui.graphics.Color
 
