@@ -1,4 +1,4 @@
-package com.fatchoy.dollar.core.data.expenseSummaryCard
+package com.fatchoy.dollar.core.data.expenses.expenseSummaryCard
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

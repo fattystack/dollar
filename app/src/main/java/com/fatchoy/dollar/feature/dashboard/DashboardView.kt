@@ -11,9 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.fatchoy.dollar.core.data.categoryChip.CategoryChipView
 import com.fatchoy.dollar.core.data.categoryChip.CategoryChipViewState
-import com.fatchoy.dollar.core.data.expenseItemCard.ExpenseItemCardView
-import com.fatchoy.dollar.core.data.expenseItemCard.ExpenseItemCardViewState
-import com.fatchoy.dollar.core.data.expenseSummaryCard.ExpenseSummaryCardView
+import com.fatchoy.dollar.core.data.expenses.expenseItemCard.ExpenseItemCardView
+import com.fatchoy.dollar.core.data.expenses.expenseItemCard.ExpenseItemCardViewState
+import com.fatchoy.dollar.core.data.expenses.expenseSummaryCard.ExpenseSummaryCardView
 import com.fatchoy.dollar.core.data.monthlySpentCard.MonthlySpentCardView
 import com.fatchoy.dollar.ui.styling.DollarSpace
 import com.fatchoy.dollar.ui.theme.DollarTypography

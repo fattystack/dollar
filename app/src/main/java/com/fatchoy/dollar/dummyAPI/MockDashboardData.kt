@@ -3,9 +3,9 @@ package com.fatchoy.dollar.dummyAPI
 import androidx.compose.ui.graphics.Color
 import com.fatchoy.dollar.R
 import com.fatchoy.dollar.core.data.categoryChip.CategoryChipViewState
-import com.fatchoy.dollar.core.data.expenseItemCard.ExpenseItemCardViewState
-import com.fatchoy.dollar.core.data.expenseSummaryCard.ExpenseSummaryCardViewState
 import com.fatchoy.dollar.core.data.expenses.ExpensesViewState
+import com.fatchoy.dollar.core.data.expenses.expenseItemCard.ExpenseItemCardViewState
+import com.fatchoy.dollar.core.data.expenses.expenseSummaryCard.ExpenseSummaryCardViewState
 import com.fatchoy.dollar.core.data.monthlySpentCard.MonthlySpentCardViewState
 import com.fatchoy.dollar.core.data.user.UserViewState
 import com.fatchoy.dollar.core.ui.user.UserUI
@@ -65,7 +65,7 @@ object MockDashboardData {
         budgetProgress = 0.6f
     )
 
-    private val mockCategories = listOf(
+    val mockCategories = listOf(
         CategoryChipViewState(categoryName = "Groceries", categoryIcon = R.drawable.ic_cart),
         CategoryChipViewState(categoryName = "Shopping", categoryIcon = R.drawable.ic_cart),
         CategoryChipViewState(categoryName = "Dining Out", categoryIcon = R.drawable.ic_cart),
