@@ -18,6 +18,7 @@ import com.fatchoy.dollar.feature.addExpense.AddExpenseView
 import com.fatchoy.dollar.feature.addExpense.AddExpenseViewState
 import com.fatchoy.dollar.feature.dashboard.DashboardView
 import com.fatchoy.dollar.ui.components.AddExpenseButton
+import com.fatchoy.dollar.ui.components.TopBar
 import com.fatchoy.dollar.ui.styling.DollarColors
 
 class MainActivity : ComponentActivity() {
@@ -43,6 +44,13 @@ fun DollarApp() {
                 AddExpenseButton(navController)
             }
         },
+        topBar = {
+            if (currentRoute == "dashboard") {
+                TopBar(
+                    userName = "John Doe"
+                )
+            }
+        }
     ) {
         NavHost(
             navController = navController,
