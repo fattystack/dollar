@@ -1,6 +1,5 @@
 package com.fatchoy.dollar.dummyAPI
 
-import androidx.compose.ui.graphics.Color
 import com.fatchoy.dollar.R
 import com.fatchoy.dollar.core.data.categoryChip.CategoryChipViewState
 import com.fatchoy.dollar.core.data.expenses.ExpensesViewState
@@ -78,7 +77,7 @@ object MockDashboardData {
             merchantName = "Starbucks",
             categoryName = "Dining Out",
             categoryIcon = R.drawable.ic_cart,
-            categoryIconBackground = Color(0xFFE57373),
+            categoryIconBackground = DollarColors.MOCK_EXPENSE_RED,
             amount = 5.50,
             amountFormatted = "-$5.50",
             date = "Dec 27"
@@ -88,7 +87,7 @@ object MockDashboardData {
             merchantName = "Uber",
             categoryName = "Transport",
             categoryIcon = R.drawable.ic_cart,
-            categoryIconBackground = Color(0xFF64B5F6),
+            categoryIconBackground = DollarColors.MOCK_EXPENSE_BLUE,
             amount = 24.10,
             amountFormatted = "-$24.10",
             date = "Dec 26"
@@ -98,7 +97,7 @@ object MockDashboardData {
             merchantName = "Whole Foods",
             categoryName = "Groceries",
             categoryIcon = R.drawable.ic_cart,
-            categoryIconBackground = Color(0xFF81C784),
+            categoryIconBackground = DollarColors.MOCK_EXPENSE_GREEN,
             amount = 112.80,
             amountFormatted = "-$112.80",
             date = "Dec 25"

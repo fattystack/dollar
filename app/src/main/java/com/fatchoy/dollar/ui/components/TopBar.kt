@@ -2,6 +2,7 @@ package com.fatchoy.dollar.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -31,7 +32,6 @@ import com.fatchoy.dollar.ui.theme.DollarTypography
 @Composable
 fun TopBar(
     modifier: Modifier = Modifier,
-    userName: String = "Guest",
     onProfileClick: () -> Unit = {},
 ) {
     TopAppBar(
@@ -75,7 +75,8 @@ fun TopBar(
                 modifier = Modifier
                     .size(DollarWidth.XXL)
                     .clip(CircleShape)
-                    .background(DollarColors.APP_BACKGROUND_COLOR),
+                    .background(DollarColors.APP_BACKGROUND_COLOR)
+                    .clickable(onClick = onProfileClick),
             ) {
                 Icon(
                     imageVector = Icons.Default.AccountCircle,
@@ -92,7 +93,6 @@ fun TopBar(
 @Composable
 fun DollarTopBarPreview() {
     TopBar(
-        userName = "Alex",
         onProfileClick = {}
     )
 }

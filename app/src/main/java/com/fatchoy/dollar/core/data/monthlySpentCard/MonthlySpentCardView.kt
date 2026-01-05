@@ -76,7 +76,7 @@ fun GetBudgetSpentText(amountSpent: String, budgetAmount: String) {
 fun GetBudgetProgressBar(modifier: Modifier = Modifier, progress: Float) {
     var color = DollarColors.GREEN
     when {
-        progress >= 0.9f -> {
+        progress >= HIGH_BUDGET_THRESHOLD -> {
             color = DollarColors.RED
         }
     }
