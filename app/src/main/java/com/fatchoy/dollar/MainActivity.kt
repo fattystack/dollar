@@ -16,8 +16,13 @@ import androidx.navigation.compose.rememberNavController
 import com.fatchoy.dollar.dummyAPI.MockDashboardData
 import com.fatchoy.dollar.feature.addExpense.AddExpenseView
 import com.fatchoy.dollar.feature.addExpense.AddExpenseViewState
+import com.fatchoy.dollar.feature.budgets.BudgetView
 import com.fatchoy.dollar.feature.dashboard.DashboardView
+import com.fatchoy.dollar.feature.profile.ProfileView
+import com.fatchoy.dollar.feature.transactions.TransactionsView
 import com.fatchoy.dollar.ui.components.AddExpenseButton
+import com.fatchoy.dollar.ui.components.BottomNavItem
+import com.fatchoy.dollar.ui.components.Navbar
 import com.fatchoy.dollar.ui.components.TopBar
 import com.fatchoy.dollar.ui.styling.DollarColors
 
@@ -36,6 +41,8 @@ fun DollarApp() {
     val navController = rememberNavController()
     val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
 
+    val showBottomBar = currentRoute in BottomNavItem.routes
+
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         containerColor = DollarColors.APP_BACKGROUND_COLOR,
@@ -46,8 +53,14 @@ fun DollarApp() {
         },
         topBar = {
             if (currentRoute == "dashboard") {
-                TopBar(
-                    userName = "John Doe"
+                TopBar()
+            }
+        },
+        bottomBar = {
+            if (showBottomBar) {
+                Navbar(
+                    navigationController = navController,
+                    currentRoute = currentRoute
                 )
             }
         }
@@ -59,6 +72,15 @@ fun DollarApp() {
         ) {
             composable("dashboard") {
                 DashboardView(viewState = MockDashboardData.mockDashboardState)
+            }
+            composable("budgets") {
+                BudgetView()
+            }
+            composable("transactions") {
+                TransactionsView()
+            }
+            composable("profile") {
+                ProfileView()
             }
             composable("add_expense") {
                 AddExpenseView(

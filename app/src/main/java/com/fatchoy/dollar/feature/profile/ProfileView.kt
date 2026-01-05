@@ -1,4 +1,4 @@
-package com.fatchoy.dollar.feature.budgets
+package com.fatchoy.dollar.feature.profile
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,13 +9,13 @@ import androidx.compose.ui.Modifier
 import com.fatchoy.dollar.ui.theme.DollarTypography
 
 @Composable
-fun BudgetView(modifier: Modifier = Modifier) {
+fun ProfileView(modifier: Modifier = Modifier) {
     Box(
         modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = "Budgets Screen",
+            text = "Profile Screen",
             style = DollarTypography.H1
         )
     }
