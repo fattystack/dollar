@@ -20,6 +20,7 @@ import com.fatchoy.dollar.feature.budgets.BudgetView
 import com.fatchoy.dollar.feature.dashboard.DashboardView
 import com.fatchoy.dollar.feature.profile.ProfileView
 import com.fatchoy.dollar.feature.transactions.TransactionsView
+import com.fatchoy.dollar.feature.transactions.TransactionsViewState
 import com.fatchoy.dollar.ui.components.AddExpenseButton
 import com.fatchoy.dollar.ui.components.BottomNavItem
 import com.fatchoy.dollar.ui.components.Navbar
@@ -77,7 +78,9 @@ fun DollarApp() {
                 BudgetView()
             }
             composable("transactions") {
-                TransactionsView()
+                TransactionsView(
+                    state = TransactionsViewState(transactions = MockDashboardData.mockGroupedTransactions)
+                )
             }
             composable("profile") {
                 ProfileView()

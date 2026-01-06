@@ -133,6 +133,54 @@ object MockDashboardData {
             date = "Dec 25"
         )
     )
+    val mockGroupedTransactions = mapOf(
+        "Today" to listOf(
+            ExpenseItemCardViewState(
+                id = "1",
+                merchantName = "Starbucks",
+                categoryName = "Dining Out",
+                categoryIcon = R.drawable.ic_cart,
+                categoryIconBackground = DollarColors.MOCK_EXPENSE_GREEN,
+                amount = 5.50,
+                amountFormatted = "-$5.50",
+                date = "Today"
+            ),
+            ExpenseItemCardViewState(
+                id = "2",
+                merchantName = "Uber",
+                categoryName = "Transport",
+                categoryIcon = R.drawable.ic_cart,
+                categoryIconBackground = DollarColors.MOCK_EXPENSE_GREEN,
+                amount = 24.10,
+                amountFormatted = "-$24.10",
+                date = "Today"
+            )
+        ),
+        "Yesterday" to listOf(
+            ExpenseItemCardViewState(
+                id = "3",
+                merchantName = "Whole Foods",
+                categoryName = "Groceries",
+                categoryIcon = R.drawable.ic_cart,
+                categoryIconBackground = DollarColors.MOCK_EXPENSE_GREEN,
+                amount = 112.80,
+                amountFormatted = "-$112.80",
+                date = "Yesterday"
+            )
+        ),
+        "Dec 25" to listOf(
+            ExpenseItemCardViewState(
+                id = "4",
+                merchantName = "Amazon",
+                categoryName = "Shopping",
+                categoryIcon = R.drawable.ic_cart,
+                categoryIconBackground = DollarColors.MOCK_EXPENSE_GREEN,
+                amount = 89.99,
+                amountFormatted = "-$89.99",
+                date = "Dec 25"
+            )
+        )
+    )
 
     val mockDashboardState = DashboardViewState(
         user = mockUser,
