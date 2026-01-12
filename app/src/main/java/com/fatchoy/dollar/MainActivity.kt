@@ -13,10 +13,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.fatchoy.dollar.dummyAPI.MockBudgetData
 import com.fatchoy.dollar.dummyAPI.MockDashboardData
 import com.fatchoy.dollar.feature.addExpense.AddExpenseView
 import com.fatchoy.dollar.feature.addExpense.AddExpenseViewState
 import com.fatchoy.dollar.feature.budgets.BudgetView
+import com.fatchoy.dollar.feature.budgets.BudgetViewState
 import com.fatchoy.dollar.feature.dashboard.DashboardView
 import com.fatchoy.dollar.feature.profile.ProfileView
 import com.fatchoy.dollar.feature.transactions.TransactionsView
@@ -75,7 +77,7 @@ fun DollarApp() {
                 DashboardView(viewState = MockDashboardData.mockDashboardState)
             }
             composable("budgets") {
-                BudgetView()
+                BudgetView(state = BudgetViewState(budgets = MockBudgetData.mockBudgets))
             }
             composable("transactions") {
                 TransactionsView(
